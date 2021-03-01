@@ -16,3 +16,6 @@ app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/public/index.html
 
 // route to the notes page - untested
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/public/notes.html')));
+
+// listening
+app.listen(PORT, () => console.log(`listening on ${PORT}`));
