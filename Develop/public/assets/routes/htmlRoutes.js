@@ -5,7 +5,7 @@ const app = express();
 module.exports = (app) => {
     // route to main page
     app.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname, '../../index.html'));
+        res.sendFile(path.join(__dirname, '/Develop/public/index.html'));
     });
 
     // route to notes page
@@ -13,4 +13,8 @@ module.exports = (app) => {
         res.sendFile(path.join(__dirname, '../../notes.html'));
     });
 
+      // if no matching route is found default to home
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/Develop/public/index.html'));
+  });
 }
