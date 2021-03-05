@@ -1,22 +1,28 @@
 const express = require("express");
-const { fstat } = require("fs");
+const fs = require("fs");
 const path = require("path");
-const app = express();
 
-// might not need this
-const database = require("./../../../db/db.json");
-
+// exports the routes
 module.exports = (app) => {
-  // path works, the json does not
-  app.get("/api/notes", (req, res) => {
-    console.log('app.get reporting in');
-    
-})
+  // reads the database file
+  fs.readFile('./Develop/db/db.json', 'utf8', (err, data) => {
+    if (err) throw err;
+    console.log(data);
+    const noteObject = JSON.parse(data);
+
+    // api route for notes page
+    app.get("/api/notes", (req, res) => {
+      res.json(noteObject);
+      console.log(noteOject);
+    })
 
   app.post("/api/notes", (req, res) => {
-  console.log(req.body);
-  // fix this! It needs to push to the database, but it doesn't yet
-  database.push(req.body);
-  })
 
+
+  fs.writeFile('./Develop/db/db.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
+    if (err) throw err
+    console.log('Done!')
+  })
+  })
+  })
 }
