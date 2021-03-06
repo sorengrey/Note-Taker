@@ -13,7 +13,6 @@ Note Taker was written in Node.js, JS, CSS, and HTML. It also includes its own J
 ### Table Of Contents
 - [Installation](#Installation)
 - [Contributing](#Contributing)
-- [Tests](#Tests)
 - [License](#License)
 - [Questions](#Questions)
 
