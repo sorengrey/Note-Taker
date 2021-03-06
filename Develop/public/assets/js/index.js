@@ -68,6 +68,7 @@ const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
+    id: new Date().valueOf(),
   };
   saveNote(newNote).then(() => {
     getAndRenderNotes();
@@ -82,7 +83,7 @@ const handleNoteDelete = (e) => {
 
   const note = e.target;
   const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
-
+console.log(noteId)
   if (activeNote.id === noteId) {
     activeNote = {};
   }
