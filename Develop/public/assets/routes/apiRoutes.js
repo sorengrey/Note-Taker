@@ -4,25 +4,49 @@ const path = require("path");
 
 // exports the routes
 module.exports = (app) => {
-  // reads the database file
-  fs.readFile('./Develop/db/db.json', 'utf8', (err, data) => {
-    if (err) throw err;
-    console.log(data);
-    const noteObject = JSON.parse(data);
-
-    // api route for notes page
-    app.get("/api/notes", (req, res) => {
-      res.json(noteObject);
-      console.log(noteOject);
+    // get route for notes page 
+    app.get('/api/notes', (req, res) => {
+      // console.log(noteObject);
+      fs.readFile('./Develop/db/db.json', 'utf8', (err, data) => {
+        if (err) throw err;
+        //console.log(data);
+        res.send(data);
+        // const noteObject = JSON.parse(data);
+       // console.log(noteObject);
+      })
+  
+     // console.log(noteObject);
     })
 
-  app.post("/api/notes", (req, res) => {
+    //post route for the notes page
+    app.post('/api/notes', (req, res) => {
+      let note = req.body;
+ 
+      fs.readFile('./Develop/db/db.json', 'utf8', (err, data) => {
+        if (err) throw err;
+        // console.log(data);
+        res.send(data);
+        const noteObject = JSON.parse(data);
+       // console.log(noteObject);
+        // console.log(typeof noteObject);
+        // console.log(noteObject);
+        noteObject.push(note);
+        console.log(noteObject);
+        fs.writeFile('./Develop/db/db.json', JSON.stringify(noteObject), err => {
+          if (err) throw err;
+          return true;
+      });
+      })
+      // console.log(data);
+     
+    })
 
+    // writes to db.json
+    // const writeNotes = () => {
+    //   fs.writeFile('./Develop/db/db.json', JSON.stringify(), err => {
+    //     if (err) throw err;
+    //     return true;
+    // });
+    // }
 
-  fs.writeFile('./Develop/db/db.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
-    if (err) throw err
-    console.log('Done!')
-  })
-  })
-  })
-}
+  }
