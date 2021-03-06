@@ -19,7 +19,3 @@ const PORT = process.env.PORT || 8080;
 
 // listening (starts the server)
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
-
-// going to need a post request for the note form
-
-// going to need a delete request for the note form
