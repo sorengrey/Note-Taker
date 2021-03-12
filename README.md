@@ -1,7 +1,7 @@
 # Note-Taker ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 An self-contained application that runs its own server and allows the user to write and save notes.
 
-![screenshot of portfolio website](./Develop/public/assets/screenshot-for-readme.png?raw=true "screenshot of application with notes")
+![screenshot of application](./Develop/public/assets/screenshot-for-readme.png?raw=true "screenshot of application with notes")
 [Click here for the live website.](https://arcane-sands-37553.herokuapp.com/)<br><br>
 
 ### Description
